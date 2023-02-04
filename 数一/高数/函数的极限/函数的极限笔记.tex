@@ -1,0 +1,107 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\newtheorem{corollary}{Corollary}[section]
+\usepackage{amsmath}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\title{函数的极限}
+\author{seeker}
+\date{\today}	
+
+\lstset{
+	basicstyle          =   \sffamily,          % 基本代码风格
+	keywordstyle        =   \bfseries,          % 关键字风格
+	commentstyle        =   \rmfamily\itshape,  % 注释的风格，斜体
+	stringstyle         =   \ttfamily,  % 字符串风格
+	flexiblecolumns,                % 别问为什么，加上这个
+	numbers             =   left,   % 行号的位置在左边
+	showspaces          =   false,  % 是否显示空格，显示了有点乱，所以不现实了
+	numberstyle         =   \zihao{-5}\ttfamily,    % 行号的样式，小五号，tt等宽字体
+	showstringspaces    =   false,
+	captionpos          =   t,      % 这段代码的名字所呈现的位置，t指的是top上面
+	frame               =   lrtb,   % 显示边框
+}
+
+\lstdefinestyle{cpp}{
+	language        =   C++, % 语言选Python
+	basicstyle      =   \zihao{-5}\ttfamily,
+	numberstyle     =   \zihao{-5}\ttfamily,
+	breaklines      =   true,   % 自动换行，建议不要写太长的行
+	columns         =   fixed,  % 如果不加这一句，字间距就不固定，很丑，必须加
+	basewidth       =   0.5em,
+}
+
+\begin{document}
+	\maketitle
+	\section{自变量趋于无穷大时}
+	\begin{definition}
+		$\lim _{x \rightarrow \infty} f(x)=A$，$\forall \varepsilon>0, \exists X>0$, 当 $|x|>X$ 时, 恒有 $|f(x)-A|<\varepsilon$。
+	\end{definition}
+
+	\begin{theorem}
+		\begin{equation}
+			\begin{split}
+				&\lim _{x\rightarrow \infty}f(x)=A \\
+				\Leftrightarrow 
+				&\lim _{x\rightarrow + \infty}f(x)
+				=\lim _{x\rightarrow - \infty}f(x)=A
+			\end{split}
+		\end{equation}
+	\end{theorem}
+
+
+	反过来说，当$\lim _{x \rightarrow -\infty}f(x)!=\lim _{x \rightarrow}f(x)$时，我们称$\lim_{x \rightarrow \infty}$不存在。
+	同时，在数列中，若$n\rightarrow \infty$，我们约定为$n\rightarrow +\infty$。在数列中，
+	$$\lim _{n\rightarrow \infty}f(n) \Rightarrow \lim _{x\rightarrow +\infty}f(x)$$
+	该式无法反推：
+	对于 $f(x)=\sin{x\pi}$，数列$\lim _{n\rightarrow\infty}f(n)=0$，
+	但是函数$f(n)$的极限不存在，这是由于数列只取$1,2,...n$等正整数。
+	
+	\section{自变量趋向于有限值时}
+	\begin{definition}
+		$\lim _{x\rightarrow x_0}f(x)=A$,$\forall \varepsilon > 0$,
+		$\exists \delta > 0$，当$0<|x-x_0|<\delta$时,恒有$|f(x)-A|<\varepsilon$。
+	\end{definition}
+	
+	注：
+	\begin{enumerate}
+		\item $\varepsilon$具有任意性，$\delta$具有存在性
+		\item 定义2在几何上的意义为，对于$x \in (x_0-\delta,x_0+\delta)$，
+		存在$\varepsilon$，使得$y=f(x)\in (A-\varepsilon,A+\varepsilon)$。
+		\item $x\rightarrow x_0$，$x!=x_0$。也就是说，$\lim _{x\rightarrow x_0}$ 与 $f(x_0)$无关。
+		\item $0<|x-x_0|<\delta$，$|f(x)-A|<\varepsilon$，即$f(x)=A$可以成立。这里的微小定义会引出一些问题。
+		
+	\end{enumerate}
+	\subsection{例题}
+		由于$\lim_{x\rightarrow 0} \frac{\sin x}{x}=1$，是否可以得到
+		$$
+		\lim _{x\rightarrow 0}
+		\frac{\sin(x\sin {\frac{1}{x}})}
+		{x\sin{\frac{1}{x}}}=0
+		$$
+		
+		解：$
+		\lim _{x\rightarrow 0}
+		\frac{\sin(x\sin {\frac{1}{x}})}
+		{x\sin{\frac{1}{x}}}=0
+		$不存在。	
+		令$xsin \frac{1}{x}=t$，则
+		\begin{equation}
+			\begin{split}
+				&\lim _{x\rightarrow 0}
+				\frac{\sin(x\sin {\frac{1}{x}})}
+				{x\sin{\frac{1}{x}}}\\
+				=&\lim _{x\rightarrow 0}
+				\frac{\sin t}{t}
+			\end{split}
+		\end{equation}
+
+	由于$x\rightarrow 0$时，存在$x_0$使得$t=0$，因此极限不存在。
+	
+\end{document}
