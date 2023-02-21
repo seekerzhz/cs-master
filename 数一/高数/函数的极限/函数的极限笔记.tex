@@ -43,7 +43,7 @@
 	\begin{definition}
 		$\lim _{x \rightarrow \infty} f(x)=A$，$\forall \varepsilon>0, \exists X>0$, 当 $|x|>X$ 时, 恒有 $|f(x)-A|<\varepsilon$。
 	\end{definition}
-
+	
 	\begin{theorem}
 		\begin{equation}
 			\begin{split}
@@ -78,31 +78,69 @@
 		\item $0<|x-x_0|<\delta$，$|f(x)-A|<\varepsilon$，即$f(x)=A$可以成立。这里的微小定义会引出一些问题。
 		
 	\end{enumerate}
-	\subsection{例题}
-		由于$\lim_{x\rightarrow 0} \frac{\sin x}{x}=1$，是否可以得到
-		$$
-		\lim _{x\rightarrow 0}
-		\frac{\sin(x\sin {\frac{1}{x}})}
-		{x\sin{\frac{1}{x}}}=0
-		$$
-		
-		解：$
-		\lim _{x\rightarrow 0}
-		\frac{\sin(x\sin {\frac{1}{x}})}
-		{x\sin{\frac{1}{x}}}=0
-		$不存在。	
-		令$xsin \frac{1}{x}=t$，则
-		\begin{equation}
-			\begin{split}
-				&\lim _{x\rightarrow 0}
-				\frac{\sin(x\sin {\frac{1}{x}})}
-				{x\sin{\frac{1}{x}}}\\
-				=&\lim _{x\rightarrow 0}
-				\frac{\sin t}{t}
-			\end{split}
-		\end{equation}
-
-	由于$x\rightarrow 0$时，存在$x_0$使得$t=0$，也就说，$x\rightarrow 0$并不代表着$\sin{\frac{1}{x} \rightarrow 0}$，因此极限不存在。
-	
-	
+	\section{例题}
+		\begin{enumerate}
+			\item 
+			由于$\lim_{x\rightarrow 0} \frac{\sin x}{x}=1$，是否可以得到
+			$$
+			\lim _{x\rightarrow 0}
+			\frac{\sin(x\sin {\frac{1}{x}})}
+			{x\sin{\frac{1}{x}}}=0
+			$$
+			
+			解：$
+			\lim _{x\rightarrow 0}
+			\frac{\sin(x\sin {\frac{1}{x}})}
+			{x\sin{\frac{1}{x}}}=0
+			$不存在。	
+			令$xsin \frac{1}{x}=t$，则
+			\begin{equation}
+				\begin{split}
+					&\lim _{x\rightarrow 0}
+					\frac{\sin(x\sin {\frac{1}{x}})}
+					{x\sin{\frac{1}{x}}}\\
+					=&\lim _{x\rightarrow 0}
+					\frac{\sin t}{t}
+				\end{split}
+			\end{equation}
+			
+			由于$x\rightarrow 0$时，存在$x_0$使得$t=0$，也就说，$x\rightarrow 0$并不代表着$\sin{\frac{1}{x} \rightarrow 0}$，因此极限不存在。
+			
+			\item 
+			
+			根据函数极限的定义证明：函数$f(x)$ 当$x\rightarrow x_0$ 时极限储存在的充分必要条件是左极限、右极限各自存在并且相等。
+			
+			证：
+			\begin{itemize}
+				\item [必要性] 若$\lim _{x\rightarrow x_0}f(x)=A$，$\forall \varepsilon > 0, \exists \delta > 0$,当$0<|x-x_0|<\delta$时,有$|f(x)-A|<\varepsilon$.
+				
+				当$0<x-x_0<\delta$时，$|f(x)-A|<\varepsilon$，即为$\lim _{x \rightarrow x_0^+}=A$；
+				
+				当$0<x_0-x<\delta$时，$|f(x)-A|<\varepsilon$，即为$\lim _{x \rightarrow x_0^-}=A$；
+				
+				
+				\item [充分性] 反过来即可。
+			\end{itemize} 
+			
+			\item 给出$x\rightarrow \infty$时，函数的极限的局部有界性定理，并加以证明。
+			
+			答：若$\lim _{x\rightarrow \infty}f(x)=A$，$\exists$常数$ X > 0,M>0$，使得$|x|>X$时，$|f(x)|<=M$.
+			
+			\begin{equation}
+				\begin{split}
+					&\lim _{x\rightarrow \infty} f(x)=A \\
+					\Rightarrow 
+					&\exists \delta>0,|f(x)-A|<\varepsilon
+				\end{split}
+			\end{equation}
+		令$\varepsilon=1$，则
+			\begin{equation}
+				\begin{split}
+					&|f(x)|-|A|<=|f(x)-A|<\varepsilon=1\\
+					\Rightarrow
+					&|f(x)|<1+|A|
+				\end{split}
+			\end{equation}
+			令$M=1+|A|$，$N=\delta$，则$\exists M,N>0$，在$x>|X|$时，使得$|f(x)|<M$。
+		\end{enumerate}
 \end{document}
