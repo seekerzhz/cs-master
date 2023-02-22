@@ -29,7 +29,7 @@
 }
 
 \lstdefinestyle{cpp}{
-	language        =   C++, % 语言选Python
+	language        =   C++, % 语言选cpp
 	basicstyle      =   \zihao{-5}\ttfamily,
 	numberstyle     =   \zihao{-5}\ttfamily,
 	breaklines      =   true,   % 自动换行，建议不要写太长的行
@@ -104,7 +104,8 @@
 				\end{split}
 			\end{equation}
 			
-			由于$x\rightarrow 0$时，存在$x_0$使得$t=0$，也就说，$x\rightarrow 0$并不代表着$\sin{\frac{1}{x} \rightarrow 0}$，因此极限不存在。
+			由于$x\rightarrow 0$时，存在$x_0$使得$t=0$
+			，则$x\rightarrow 0\neq \sin{\frac{1}{x} \rightarrow 0}$，因此极限不存在。
 			
 			\item 
 			
@@ -142,5 +143,50 @@
 				\end{split}
 			\end{equation}
 			令$M=1+|A|$，$N=\delta$，则$\exists M,N>0$，在$x>|X|$时，使得$|f(x)|<M$。
+			
+			\item  (这题是常用极限，但是我认为武证明的比书好)
+			
+			证明：$\lim_{n\rightarrow \infty}(1+\frac{1}{n})^{n}$存在极限
+			
+			有均值不等式：
+			$$
+			a_1\cdot a_2\cdot...\cdot a_n \leq (
+			\frac{a_1+a_2+...+a_n}{n})^n
+			$$
+			可得：
+			\begin{equation}
+				\begin{split}
+					&(1+\frac{1}{n})^n \\
+					=&(1+\frac{1}{n})^n*1 
+					\leq\frac{(1+n+1)}{n+1}
+					=(\frac{1}{n+1})^{n+1}
+				\end{split}
+			\end{equation}
+			原式为单调增序列，为证数列存在极限，只需证明有界：
+			\begin{equation}
+				\begin{split}
+					&\frac{1}{4}\cdot(1+\frac{1}{n})^n \\
+					=&(1+\frac{1}{n})^n\cdot \frac{1}{2} \cdot \frac{1}{2}
+					\leq\frac{(1+n+1)}{n+2}
+					=1\\
+					&(1+\frac{1}{n})^n\leq 4
+				\end{split}
+			\end{equation}
+		
+			\item 求$\lim_{n\rightarrow \infty} [\frac{1}{1*2}+\frac{1}{2*3}+...+\frac{1}{n(n+1)}]^2$.
+			
+			解：
+			\begin{equation}
+				\begin{split}
+					&\lim [\frac{1}{1*2}+\frac{1}{2*3}+...+\frac{1}{n(n+1)}\\
+					=&(1-\frac{1}{2})+(\frac{1}{2}-\frac{1}{3})+...+
+					(\frac{1}{n}-\frac{1}{n+1})\\
+					=&1-\frac{1}{n+1}, \\										
+					\text{原式}=&\lim_{n\rightarrow \infty} (1-\frac{1}{n+1})^n \\
+					=&\lim_{n\rightarrow \infty} [(1+(-\frac{1}{n+1}))^{-(n+1)}]
+					^\frac{n}{-n-1} \\
+					=&e^{-1}.
+				\end{split}
+			\end{equation}
 		\end{enumerate}
 \end{document}
