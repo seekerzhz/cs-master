@@ -57,8 +57,10 @@
 
 
 	反过来说，当$\lim _{x \rightarrow -\infty}f(x)!=\lim _{x \rightarrow}f(x)$时，我们称$\lim_{x \rightarrow \infty}$不存在。
-	同时，在数列中，若$n\rightarrow \infty$，我们约定为$n\rightarrow +\infty$。在数列中，
-	$$\lim _{n\rightarrow \infty}f(n) \Rightarrow \lim _{x\rightarrow +\infty}f(x)$$
+	同时，在数列中，若$n\rightarrow \infty$，我们约定为$n\rightarrow +\infty$。
+	
+	在数列中，
+	$$\lim _{x\rightarrow \infty}f(x) \Rightarrow \lim _{n\rightarrow +\infty}f(n)$$
 	该式无法反推：
 	对于 $f(x)=\sin{x\pi}$，数列$\lim _{n\rightarrow\infty}f(n)=0$，
 	但是函数$f(n)$的极限不存在，这是由于数列只取$1,2,...n$等正整数。
@@ -188,5 +190,43 @@
 					=&e^{-1}.
 				\end{split}
 			\end{equation}
-		\end{enumerate}
+		
+			\item 证明：当$x>0$时，$\frac{1}{1+x}<\ln(1+\frac{1}{x})<\frac{1}{x}$。
+			
+			\item 证明：数列$\sqrt2,\sqrt{2+\sqrt{2}},\sqrt{2+\sqrt{2+\sqrt{2}}}...$的极限存在；
+			
+			解：令$x_n$表示数列，由题意可得：$x_{n+1}=\sqrt{x_n+2}$。
+			
+			\begin{itemize}
+				\item 有界性 $x_n<2$。
+				
+				$i=1$时，$x_1=\sqrt{2}<2$；
+				
+				假设$i=k$满足$x_k<2$，则
+				$$
+				x_{k+1}=\sqrt{x_{k}+2}<2。
+				$$，即$x_{k+1}<2$
+				
+				\item 单调性 
+				\begin{equation}
+					\begin{split}
+						 &x_{k+1}-x_k \\
+						=&\sqrt{2+x_k}-k\\
+						&2+x_k-k^2\\
+						=&-(x_k+\frac{1}{2})+\frac{9}{4}(x_k<2)
+					\end{split}
+				\end{equation}
+				原式大于$0$，所以该数列单调。
+			\end{itemize}
+			
+			\item 假设函数$f(x)$在闭区间$[0,1]$上连续，并且对$[0,1]$上任一点$x$有
+			$0\leq f(x)\leq 1$.试证明$[0,1]$中必存在一点$c$。使得$f(c)=c$
+			（$c$称$f(x)$的不动点）.
+			
+			证：设$F(x)=f(x)-x$，则$F(0)=f(0)\geq 0$,$F(1)=f(1)-1\leq 0.$
+			
+			若$F(0)=0$或$F(1)=0$，则0或1即位$f(x)$的不动点；
+			
+			若$F(0)>0$且$F(1)<0$,则由零点定理，必存在$c\in(0,1)$，使得$F(c)=0$，这时c为$f(x)$的不动点。
+			\end{enumerate}
 \end{document}
